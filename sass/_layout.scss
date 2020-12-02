@@ -1,8 +1,14 @@
 .container{
-  width: 120rem;
+  max-width: 120rem;
   margin: 8rem auto;
   background-color: var(--color-grey-light-1);
   box-shadow: var(--shadow-dark);
+
+  @media only screen and (max-width: $bp-largest){
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .header{
@@ -14,10 +20,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: $bp-smallest){
+    flex-wrap: wrap;
+    height: 10rem;
+    align-content: space-around;
+  }
 }
 
 .content{
   display: flex;
+
+  @media only screen and (max-width: $bp-medium){
+    flex-direction: column;
+  }
 }
 
 .scroll-bar{
@@ -40,6 +56,13 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
+
+  @media only screen and (max-width: $bp-medium){
+    padding: 3rem;
+  }
+  @media only screen and (max-width: $bp-small){
+    flex-direction: column;
+  }
 }
 .description{
   background-color: #fff;
@@ -47,6 +70,15 @@
   padding: 3rem;
   flex: 0 0 60%;
   margin-right: 4.5rem;
+
+  @media only screen and (max-width: $bp-medium){
+    padding: 2rem;
+    margin-right: 3rem;
+  }
+  @media only screen and (max-width: $bp-small){
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
 }
 .user-reviews{
   flex: 1;                          //take remaining space-between

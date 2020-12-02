@@ -14,6 +14,12 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest){
+    order: 1;            // moves to last
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &_input{
     background-color: var(--color-grey-light-2);
     border: none;
@@ -101,10 +107,23 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: $bp-medium){
+    display: flex;
+    margin: 0;
+  }
+
   &-item{
     position: relative;
     &:not(:last-child){
       margin-bottom: .5rem;
+
+      @media only screen and (max-width: $bp-medium){
+        margin-bottom: 0;
+      }
+    }
+
+    @media only screen and (max-width: $bp-medium){
+      flex: 1;
     }
   }
   &-item::before{
@@ -137,12 +156,28 @@
     display: flex;
     align-items: center;
 
+    @media only screen and (max-width: $bp-medium){
+      justify-content: center;
+      padding: 2rem;
+    }
+    @media only screen and (max-width: $bp-small){
+      flex-direction: column;
+      padding: 1.5rem .5rem;
+    }
+
   }
   &-icon{
     height: 1.75rem;
     width: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;         //color of parent
+
+    @media only screen and (max-width: $bp-small){
+      margin-right: 0;
+      margin-bottom: .7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 .legal{
@@ -150,6 +185,10 @@
   font-size: 1.2rem;
   text-align: center;
   padding: 2.5rem;
+
+  @media only screen and (max-width: $bp-medium){
+    display: none;
+  }
 }
 
 
@@ -178,6 +217,11 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small){
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
   &-star{
     margin-right: auto;
@@ -203,14 +247,26 @@
     margin-left: 3rem;
     padding: 0 2.25rem;
     align-self: stretch;
+
+    @media only screen and (max-width: $bp-small){
+      padding: 0 1.5rem;
+    }
   }
   &-rating-average{
     font-size: 2.25rem;
     font-weight: 300;
+
+    @media only screen and (max-width: $bp-small){
+      font-size: 1.8rem;
+    }
   }
   &-rating-count{
     font-size: .8rem;
     text-transform: uppercase;
+
+    @media only screen and (max-width: $bp-small){
+      font-size: .5rem;
+    }
   }
 }
 .btn-inline{
@@ -312,7 +368,9 @@
   &-line{
     margin-right: auto;
   }
-  &-friend{}
+  &-friend{
+    display: flex;
+  }
   &-photo{
     box-sizing: content-box;
     height: 4rem;
@@ -335,6 +393,11 @@
   padding: 3rem;
   margin-bottom: 3.5rem;
   position: relative;
+
+  @media only screen and (max-width: $bp-medium){
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &-text{
     margin-bottom: 2rem;
@@ -381,5 +444,42 @@
     color: var(--color-grey-light-2);
     font-family: sans-serif;
     z-index: 1;
+  }
+}
+
+
+////////////
+//booking
+.book{
+  padding: 3.5rem 0;
+  text-align: center;
+
+  @media only screen and (max-width: $bp-medium){
+    padding: 2.5rem 0;
+  }
+
+  &-now{
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/////////////
+//button
+.btn{
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding: 2rem 7.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:focus{
+    outline: none;
+    animation: effect 1s infinite;
   }
 }
